@@ -10,7 +10,7 @@ let arrayOfPossibleResponse = [
     { message: "Hi", response: "Hello" },
     { message: "Ok", response: "Alright" },
     { message: "How are you?" || "How are you?", response: "I'm fine, thanks" },
-    { message: "What is your name?", response: "My name is NewDevChatBot!" },
+    { message: "What is your name?", response: "My name is NewbieDevChatBot!" },
   {
     message: "What is version control, and why is it important?",
     response: "Version control is a system that records changes to a file or set of files over time, allowing you to recall specific versions later. It's crucial for collaboration, tracking changes, and reverting to previous states of a project."
@@ -95,17 +95,21 @@ function chatBotResponse(userMessage) {
             let response = result[0].response;  
             chatBotMessage = response;
         } else {
-            chatBotMessage = "I don't understand, Please send a different message or use Uppercase letter first";
+            chatBotMessage = "I don't understand, please send a different message or use uppercase letter first";
         }
     } else {
-            chatBotMessage = "I don't understand, Please send a different message or use Uppercase letter first";
+            chatBotMessage = "I don't understand, please send a different message or use uppercase letter first";
         }
     
     let messageElement = document.createElement('div');
-    messageElement.innerHTML = "<span>ChatBot: </span>" + "<span>" + chatBotMessage + "</span>"
-    chatContainer.appendChild(messageElement);
+    messageElement.innerHTML = "<span>ChatBot: </span>" + "<span>" + chatBotMessage + "</span>";
 
-   
+    setTimeout(function () {
+      messageElement.animate([{ easing: 'ease-in', opacity: 0.4}, {opacity:1}], {duration: 1000})
+      chatContainer.appendChild(messageElement);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }, 1200);
+
 }
 
 sendBtn.addEventListener('click', function (e) {
