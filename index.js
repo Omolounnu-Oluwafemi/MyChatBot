@@ -15,7 +15,6 @@ app.get('/', function (req, res) {
 });
 
 app.get('/about', function (req, res) {
-    res.send('Welcome to the about page!')
     res.render('pages/about');
 });
 
